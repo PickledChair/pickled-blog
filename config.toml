@@ -1,0 +1,63 @@
+baseURL = "http://pickled-blog.netlify.com/"
+languageCode = "ja-jp"
+title = "酢漬けの雑記帳"
+paginate = "10"
+theme = "mainroad"
+hasCJKLanguage = true
+defaultContentLanguage = "ja"
+
+[Author]
+  name = "Gray SuitCase"
+  bio = "趣味：プログラミング、ピアノ演奏"
+  avatar = "img/avatar.png"
+
+[Params]
+  subtitle = "趣味についての色々。"
+  description = "Gray SuitCase's personal blog"
+  copyright = "Gray SuitCase"
+  opengraph = true
+  schema = true
+  twitter_cards = true
+  readmore = true
+  authorbox = true
+  toc = false
+  pager = true
+  post_meta = ["date", "categories"]
+  dateformat = "2006-01-02"
+  mathjax = true
+  mathjaxPath = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js"
+  mathjaxConfig = "TeX-AMS-MML_HTMLorMML"
+
+[Params.style.vars]
+  highlightColor = "#87b0cd"
+
+[Params.logo]
+  image = "img/logo.png"
+  title = "酢漬けの雑記帳"
+  subtitle = "趣味についての色々。"
+
+[Params.sidebar]
+  home = "right"
+  list = "right"
+  single = "right"
+  widgets = ["recent", "categories", "taglist", "social"]
+
+[Params.widgets]
+  recent_num = 5
+  categories_counter = false
+  tags_counter = true
+
+[[menu.main]]
+  name = "トップ"
+  url = "/"
+  weight = 1
+
+# [[menu.main]]
+#   name = "技術"
+#   url = "/categories/技術/"
+#   weight = 2
+
+[Params.widgets.social]
+  twitter = "pickled_chair"
+  github = "PickledChair"
+
