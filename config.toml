@@ -3,6 +3,7 @@ languageCode = "ja-jp"
 title = "酢漬けの雑記帳"
 paginate = "10"
 theme = "mainroad"
+disqusShortname = "zuo-zi-kenoza-ji-zhang"
 hasCJKLanguage = true
 defaultContentLanguage = "ja"
 
