@@ -1,5 +1,6 @@
 ---
 title: "新しくブログを作りました"
+url: "/post/2021_07_17_first_post"
 date: 2021-07-17T21:31:22+09:00
 draft: false
 description: "Hugoで新しくブログを作りました"
