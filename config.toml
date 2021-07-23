@@ -50,14 +50,18 @@ defaultContentLanguage = "ja"
   tags_counter = true
 
 [[menu.main]]
-  name = "トップ"
+  name = "TOP"
   url = "/"
   weight = 1
+
+[[menu.main]]
+  name = "ABOUT"
+  url = "/about"
+  weight = 2
 
 # [[menu.main]]
 #   name = "技術"
 #   url = "/categories/技術/"
-#   weight = 2
 
 [Params.widgets.social]
   twitter = "pickled_chair"
