@@ -18,3 +18,7 @@ description: "ブログ「酢漬けの雑記帳」について"
 - 読書（小説や漫画）
 
 上記以外だと、機械学習や数学、神経科学などにも興味がありますが、まだ積極的に学べていません。時間を作っていきたいですね。
+
+### 前のブログ
+
+[https://sutukeisu.hatenablog.com/](https://sutukeisu.hatenablog.com/)
