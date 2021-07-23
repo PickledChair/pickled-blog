@@ -2,7 +2,7 @@
 title: "このブログについて"
 url: "/about"
 date: 2021-07-23T09:02:42+09:00
-draft: true
+draft: false
 description: "ブログ「酢漬けの雑記帳」について"
 ---
 
