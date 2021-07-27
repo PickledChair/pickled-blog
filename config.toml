@@ -1,4 +1,4 @@
-baseURL = "http://blog.pickledchair.com/"
+baseURL = "https://blog.pickledchair.com/"
 languageCode = "ja-jp"
 title = "酢漬けの雑記帳"
 paginate = "10"
