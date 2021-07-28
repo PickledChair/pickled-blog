@@ -8,6 +8,7 @@ categories:
   - "生活"
 tags:
   - "Hugo"
+share: true
 ---
 
 こんにちは、SuitCase です。この度、[Hugo](https://gohugo.io/) を使って新しくブログを作成しました。理由はちょっと楽しそうだったからです。はてなブログを使い続けても良かったのですが、好奇心が勝りました……。

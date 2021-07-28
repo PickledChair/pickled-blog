@@ -19,6 +19,7 @@ defaultContentLanguage = "ja"
   opengraph = true
   schema = true
   twitter_cards = true
+  customCSS = ["css/shares.css", "https://use.fontawesome.com/releases/v5.0.6/css/all.css"]
   readmore = true
   authorbox = true
   toc = false
