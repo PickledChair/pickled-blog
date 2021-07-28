@@ -19,9 +19,11 @@
 		<div class="content post__content clearfix">
 			{{ .Content }}
 		</div>
-		{{- if .Params.tags }}
+		{{- if or .Params.tags .Params.share }}
 		<footer class="post__footer">
-			{{ partial "post_tags.html" . }}
+			{{- if .Params.tags }}
+				{{ partial "post_tags.html" . }}
+			{{- end }}
 			{{- if .Params.share }}
 				{{ partial "share_buttons.html" . }}
 			{{- end }}
