@@ -5,6 +5,7 @@ paginate = "10"
 theme = "mainroad"
 hasCJKLanguage = true
 defaultContentLanguage = "ja"
+googleAnalytics = "G-FVF3WNH3P3"
 
 [Author]
   name = "Gray SuitCase"
@@ -66,4 +67,8 @@ defaultContentLanguage = "ja"
 [Params.widgets.social]
   twitter = "pickled_chair"
   github = "PickledChair"
+
+[[menu.footer]]
+  name = "プライバシーポリシー"
+  url = "/privacy"
 
