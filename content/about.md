@@ -4,6 +4,7 @@ url: "/about"
 date: 2021-07-23T09:02:42+09:00
 draft: false
 description: "ブログ「酢漬けの雑記帳」について"
+pager: false
 ---
 
 自分の趣味について気ままに書き連ねることを目的としたブログです。
