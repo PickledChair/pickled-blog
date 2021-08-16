@@ -20,7 +20,7 @@ googleAnalytics = "G-FVF3WNH3P3"
   opengraph = true
   schema = true
   twitter_cards = true
-  customCSS = ["css/shares.css", "https://use.fontawesome.com/releases/v5.0.6/css/all.css"]
+  customCSS = ["css/custom.css", "https://use.fontawesome.com/releases/v5.0.6/css/all.css"]
   readmore = true
   authorbox = true
   toc = false
@@ -30,9 +30,12 @@ googleAnalytics = "G-FVF3WNH3P3"
   mathjax = true
   mathjaxPath = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js"
   mathjaxConfig = "TeX-AMS-MML_HTMLorMML"
+  googleFontsLink = "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
 
 [Params.style.vars]
   highlightColor = "#87b0cd"
+
+  fontFamilyPrimary = "'Noto Sans JP', sans-serif"
 
 [Params.logo]
   image = "img/logo.png"
