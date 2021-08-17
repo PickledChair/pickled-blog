@@ -1,6 +1,9 @@
 # Hugo default output directory
 /public
 
+# vscode
+*.code-workspace
+
 ## OS Files
 # Windows
 Thumbs.db
