@@ -2,7 +2,7 @@
 title: "『ゼロからのOS自作入門』の写経を終えて"
 url: "/post/finished_my_study_of_os_from_zero"
 date: 2021-08-21T11:55:03+09:00
-draft: true
+draft: false
 description: "『ゼロからのOS自作入門』の写経が終了したので、この本を学んで感じたことを書き残しました。"
 toc: true
 categories:
