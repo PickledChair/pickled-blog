@@ -46,7 +46,7 @@ googleAnalytics = "G-FVF3WNH3P3"
   home = "right"
   list = "right"
   single = "right"
-  widgets = ["recent", "categories", "taglist", "social"]
+  widgets = ["search", "recent", "categories", "taglist", "social"]
 
 [Params.widgets]
   recent_num = 5
