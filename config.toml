@@ -35,7 +35,7 @@ googleAnalytics = "G-FVF3WNH3P3"
 [Params.style.vars]
   highlightColor = "#769bb5"
 
-  fontFamilyPrimary = "'Noto Sans JP', sans-serif"
+  fontFamilyPrimary = "'BIZ UDPGothic', sans-serif"
 
 [Params.logo]
   image = "img/logo.png"
