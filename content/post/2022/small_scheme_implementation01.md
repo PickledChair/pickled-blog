@@ -22,7 +22,7 @@ Scheme 処理系を自作するのはこれが初めてではなく、これま�
 - C で実装（参考実装：[kenpratt/rusty_scheme](https://github.com/kenpratt/rusty_scheme)）
 	- C に慣れていなかった（というより今も慣れていない）ので、特にメモリ管理をどうすれば良いか方針を立てられなかった
 		- 不慣れな C で実装したのは、当時読んでいた『[ゼロからのOS自作入門](http://zero.osdev.jp/)』の MikanOS 上で動作させたかったから。[実際に動作した](https://twitter.com/pickled_chair/status/1431531281653768192?s=20&t=gRfHdb9jyxAme5Zc-iP14g)
-	- 雑に bdw-gc (Bohem GC) を導入してみたりしたが、それでもビジーループで大量のメモリを確保（数百MB単位）してしまう問題を解消できなかった（[当時のツイート](https://twitter.com/pickled_chair/status/1431541885193965569?s=20&t=4vuINLU2-QKPHqQwok7Ekw)）
+	- 雑に [bdw-gc (Boehm GC)](https://www.hboehm.info/gc/) を導入してみたりしたが、それでもビジーループで大量のメモリを確保（数百MB単位）してしまう問題を解消できなかった（[当時のツイート](https://twitter.com/pickled_chair/status/1431541885193965569?s=20&t=4vuINLU2-QKPHqQwok7Ekw)）
 		- 最初は素朴なツリーウォーク・インタープリタだったが、そのままでは末尾最適化対応が面倒だった
 		- 末尾最適化を実現するために継続渡しスタイルで評価器を書き直したが、継続を表す構造体で余計に多くのメモリ確保を行ってしまった気がする
 - Rust で実装（参考実装：[micro Scheme コンパイラの作成 - お気楽 Scheme プログラミング入門](http://www.nct9.ne.jp/m_hiroi/func/abcscm33.html)）
@@ -32,7 +32,7 @@ Scheme 処理系を自作するのはこれが初めてではなく、これま�
 		- そもそもオブジェクトをコピーすると、同じオブジェクトのはずなのに同一性が失われてしまうので、そこも問題があった（特にシンボルでこれが起こってほしくない）
 		- Rust の言語的な制約で、不必要なオブジェクトのコピーをしないように実装するには、多分多くの unsafe な操作が必要になる気がする
 
-だいたいメモリ管理に悩まされている感じです……。自分でメモリ管理していない分、自分でコントロールできなかったということでしょう。
+**だいたいメモリ管理に悩まされている**感じです……。自分でメモリ管理していない分、自分でコントロールできなかったということでしょう。
 
 ということで、メモリ管理についてもう少し真面目に調査したいというモチベーションが生まれました。今回の最大の目標は「**自分で GC を実装すること**」です。[以前も「GC を実装したい」と言っていた](https://twitter.com/pickled_chair/status/1431541885193965569?s=20&t=4vuINLU2-QKPHqQwok7Ekw)のですが、知識がなくてできていませんでした。今のところは素朴な Copying GC を考えています（これが一番簡単そうだったので）。
 
@@ -42,9 +42,9 @@ Scheme 処理系を自作するのはこれが初めてではなく、これま�
 
 ## 最初の実装
 
-『[低レイヤを知りたい人のためのCコンパイラ作成入門](https://www.sigbus.info/compilerbook)』や、先述の『OS自作入門』を見習って、最初はコンパイラとは言えないような小さな実装から始めていきたいと思います。[最初のコミットはこれです](https://github.com/PickledChair/fzscheme/commit/2cc1af4461edf36aa107ee80185c3c8e692617c6)。
+『[低レイヤを知りたい人のためのCコンパイラ作成入門](https://www.sigbus.info/compilerbook)』や、先述の『OS自作入門』を見習って、最初はコンパイラとは言えないような小さな実装から始めていきたいと思います（とは言っても行き当たりばったりに実装するので、直線的には発展しないと思われます……）。[最初のコミットはこれです](https://github.com/PickledChair/fzscheme/commit/2cc1af4461edf36aa107ee80185c3c8e692617c6)。
 
-Scheme のオブジェクトはだいたい以下のような感じで表現しようと思います。タグ付き構造体で、先頭のタグで型を判断し、それに応じて適切な共用体のメンバーを選ぶ感じです。
+Scheme のオブジェクトはだいたい以下のようにタグ付き共用体で表現しようと思います。先頭のタグで型を判断し、それに応じて適切な構造体を選ぶ感じです。
 
 ```c
 typedef enum ObjectTag {
@@ -76,15 +76,39 @@ struct Object {
 #define CDR(obj) (obj)->fields_of.cell.cdr
 ```
 
-Lisp をよく知らない場合「`cell` とは？　`cell` のメンバーにある `car` と `cdr` とは？」という疑問が湧くと思います。簡単に説明すると、`cell` は連結リストのノードで、`car` はノードの値、`cdr` は後ろ側のリストです。
+Lisp をよく知らない場合「`cell` とは？　`cell` のメンバーにある `car` と `cdr` とは？」という疑問が湧くと思います。簡単に説明すると、`cell` は連結リストのノードで、`car` はノードの値、`cdr` は後続のリストです。
 
 （Scheme について詳しく知りたい場合、『[お気楽 Scheme プログラミング](http://www.nct9.ne.jp/m_hiroi/func/scheme.html)』というサイトがおすすめです。多分 Scheme 自体の知識に関しては今後もあまり説明していかないと思います。）
 
-とりあえず、今回定義したオブジェクトで表現できるデータを印字できるようにしました。`main` 関数を以下のように書いて試しにオブジェクトを print してみます。
+とりあえず、今回定義したオブジェクトを印字できるようにしたいですね。以下のように `print_obj` 関数を実装しました。
 
 ```c
 Object *NIL = &(Object){OBJ_TAG_CELL};
 
+void print_obj(Object *obj) {
+  switch (obj->tag) {
+  case OBJ_TAG_CELL:
+    putchar('(');
+    for (Object **cur = &obj; *cur != NIL; cur = &(CDR(*cur))) {
+      print_obj(CAR(*cur));
+      if (CDR(*cur) != NIL)
+        putchar(' ');
+    }
+    putchar(')');
+    break;
+  case OBJ_TAG_INTEGER:
+    printf("%ld", obj->fields_of.integer.value);
+    break;
+  case OBJ_TAG_STRING:
+    printf("%s", obj->fields_of.string.value);
+    break;
+  }
+}
+```
+
+`main` 関数を以下のように書いて試しにオブジェクトを print してみます（オブジェクトを生成する関数やメモリ解放する関数も別途定義しています）。
+
+```c
 int main(void) {
   Object *int_obj = new_integer_obj(42);
   print_obj(int_obj);
@@ -108,7 +132,7 @@ int main(void) {
 }
 ```
 
-実行すると、以下のような結果になります。
+実行すると、以下のような表示結果になります。
 
 ```scheme
 42
@@ -117,9 +141,9 @@ Hello, world!
 ()
 ```
 
-視覚的に結果が見えるのが好きなので、こんな感じで実装を始めてみました。差し当たっては次のように進めると思います。
+視覚的に結果が見えるのが好きなので、こんな感じで実装を始めてみました。差し当たっては次のように進めるつもりです。
 
 - 入力文字列を字句解析・構文解析してオブジェクトを得られるようにする
-- REPL (Read-Evaluate-Print-Loop) を実装して、標準入力で好きに入力した文字列を繰り返しオブジェクトに変換し、表示できるようにする
+- REPL (Read-Eval-Print Loop) を実装して、標準入力で好きに入力した文字列を繰り返しオブジェクトに変換し、表示できるようにする
 
 非常にまったり進めると思います。
