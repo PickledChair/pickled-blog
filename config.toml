@@ -30,12 +30,12 @@ googleAnalytics = "G-FVF3WNH3P3"
   mathjax = true
   mathjaxPath = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js"
   mathjaxConfig = "TeX-AMS-MML_HTMLorMML"
-  googleFontsLink = "https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap"
+  googleFontsLink = "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
 
 [Params.style.vars]
   highlightColor = "#769bb5"
 
-  fontFamilyPrimary = "'BIZ UDPGothic', sans-serif"
+  fontFamilyPrimary = "'Noto Sans JP', sans-serif"
 
 [Params.logo]
   image = "img/logo.png"
