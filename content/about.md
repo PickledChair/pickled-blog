@@ -20,6 +20,10 @@ pager: false
 
 上記以外だと、機械学習や数学、神経科学などにも興味がありますが、まだ積極的に学べていません。時間を作っていきたいですね。
 
+### マイポータルサイト
+
+https://pickledchair.com
+
 ### 前のブログ
 
 [https://sutukeisu.hatenablog.com/](https://sutukeisu.hatenablog.com/)
