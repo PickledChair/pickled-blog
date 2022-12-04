@@ -63,11 +63,15 @@ googleAnalytics = "G-FVF3WNH3P3"
   url = "/categories/技術/"
   weight = 2
 
+[[menu.main]]
+  name = "LIFE"
+  url = "/categories/生活/"
+  weight = 3
 
 [[menu.main]]
   name = "ABOUT"
   url = "/about"
-  weight = 3
+  weight = 4
 
 [Params.widgets.social]
   twitter = "pickled_chair"
