@@ -1,6 +1,6 @@
 baseURL = "https://blog.pickledchair.com/"
 languageCode = "ja-jp"
-title = "酢漬けの雑記帳"
+title = "Chaos in the SuitCase"
 paginate = "10"
 theme = "mainroad"
 hasCJKLanguage = true
@@ -39,7 +39,7 @@ googleAnalytics = "G-FVF3WNH3P3"
 
 [Params.logo]
   image = "img/logo.png"
-  title = "酢漬けの雑記帳"
+  title = "Chaos in the SuitCase"
   subtitle = "趣味についての色々。"
 
 [Params.sidebar]
