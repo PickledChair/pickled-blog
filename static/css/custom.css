@@ -42,8 +42,14 @@
   margin: 0 0 0 12px;
 }
 
-.twitter:hover a {
-  color: #1B95E0;
+.xtwitter:hover a {
+  color: #000000;
+}
+
+.fa-xtwitter:before {
+  content: "𝕏";
+  font-family: sans-serif;
+  font-weight: bold;
 }
 
 .facebook:hover a {
@@ -67,7 +73,7 @@
 }
 
 .fa-hatena:before {
-    content: "B!";
-    font-family: Verdana;
-    font-weight: bold
+  content: "B!";
+  font-family: Verdana;
+  font-weight: bold;
 }
