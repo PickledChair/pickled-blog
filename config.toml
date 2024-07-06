@@ -77,6 +77,12 @@ googleAnalytics = "G-FVF3WNH3P3"
   twitter = "pickled_chair"
   github = "PickledChair"
 
+[[Params.widgets.social.custom]]
+  title = "Misskey"
+  url = "https://misskey.io/@SuitCase"
+  icon = "svg/misskey.svg"
+  rel = "noopener noreferrer"
+
 [[menu.footer]]
   name = "プライバシーポリシー"
   url = "/privacy"
