@@ -34,6 +34,15 @@
   align-items: center;
   justify-content: center;
 }
+
+.sns_button img {
+  filter: brightness(0) saturate(100%) invert(26%) sepia(10%) saturate(460%) hue-rotate(177deg) brightness(91%) contrast(89%);
+  margin: auto;
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
 .sns_button:hover {
   box-shadow: inset 0 0 0 22px #eaeaea;
 }
@@ -70,6 +79,10 @@
 
 .hatena:hover a {
   color: #4BA3D9;
+}
+
+.misskey:hover img {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(28%) saturate(5177%) hue-rotate(20deg) brightness(95%) contrast(68%);
 }
 
 .fa-hatena:before {
