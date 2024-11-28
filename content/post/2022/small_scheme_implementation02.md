@@ -4,6 +4,7 @@ url: "post/small_scheme_implementation02"
 date: 2022-04-16T00:09:05+09:00
 draft: false
 description: "学習のための自作Scheme処理系に字句解析と構文解析の処理を追加しました"
+summary: "[前回](/post/small_scheme_implementation01)は Scheme オブジェクトを生成・表示するコードを書きました。今回はこれを、単純な Scheme のソースコード文字列から生成できるようにします。"
 toc: true
 categories:
   - "技術"

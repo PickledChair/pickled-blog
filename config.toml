@@ -7,11 +7,6 @@ hasCJKLanguage = true
 defaultContentLanguage = "ja"
 googleAnalytics = "G-FVF3WNH3P3"
 
-[Author]
-  name = "Gray SuitCase"
-  bio = "大学を卒業しましたが、メンタル的に問題がありまだ働いていません。趣味はプログラミングとクラシック音楽関連（演奏も鑑賞も好き）。最近は数学への興味も芽生えました。"
-  avatar = "img/avatar.png"
-
 [Params]
   subtitle = "趣味についての色々。"
   description = "Gray SuitCase's personal blog"
@@ -31,6 +26,11 @@ googleAnalytics = "G-FVF3WNH3P3"
   mathjaxPath = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js"
   mathjaxConfig = "TeX-AMS-MML_HTMLorMML"
   googleFontsLink = "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
+
+[Params.Author]
+  name = "Gray SuitCase"
+  bio = "大学を卒業しましたが、メンタル的に問題がありまだ働いていません。趣味はプログラミングとクラシック音楽関連（演奏も鑑賞も好き）。最近は数学への興味も芽生えました。"
+  avatar = "img/avatar.png"
 
 [Params.style.vars]
   highlightColor = "#769bb5"

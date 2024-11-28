@@ -4,6 +4,7 @@ url: "post/small_scheme_implementation01"
 date: 2022-04-09T18:48:08+09:00
 draft: false
 description: "学習のために小さなScheme処理系を実装し始めました"
+summary: "Scheme 処理系を C 言語で自作していこうと思います（実用のためではなく、学習のためのなんちゃって処理系、程度のものです）。"
 toc: true
 categories:
   - "技術"

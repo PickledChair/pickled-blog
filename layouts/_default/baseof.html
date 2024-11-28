@@ -37,7 +37,13 @@
 	<link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}">
 	<link rel="icon" type="image/png" sizes="32x32" href="{{ "img/favicon-32.png" | relURL }}">
 	<link rel="apple-touch-icon" sizes="180x180" href="{{ "img/favicon-180-precomposed.png" | relURL }}">
-	{{- if not .Site.IsServer }}
+	{{- $server := "" }}
+	{{- if gt (int (index (split hugo.Version ".") 1)) "120" }}
+		{{ $server = hugo.IsServer }}
+	{{- else }}
+		{{ $server = .Site.IsServer }}
+	{{- end -}}
+	{{- if not $server }}
 		{{ template "_internal/google_analytics.html" . }}
 	{{- end }}
 </head>

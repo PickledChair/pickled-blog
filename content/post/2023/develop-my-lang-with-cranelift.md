@@ -4,6 +4,7 @@ url: "post/develop-my-lang-with-cranelift"
 date: 2023-11-19T12:58:51+09:00
 draft: false
 description: "「Rustで作る！自作言語・コンパイラ入門」のコンパイラを Cranelift を使って実装した記録です"
+summary: "先日、「Rustで作る！自作言語・コンパイラ入門」という本が X で話題になっていました。楽しそうだったので自分も読んでみました。"
 toc: true
 categories:
   - "技術"
