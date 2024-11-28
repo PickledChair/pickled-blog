@@ -282,5 +282,5 @@ LLVM や Cranelift の IR はアセンブリ言語よりは抽象度が高く理
 
 自作言語・コンパイラ、しよう。
 
-[^cranelift]: LLVM と同様に、複数のアーキテクチャ向けのコード生成やコード最適化を引き受け、コンパイラ開発をフロントエンド部分の開発で済むようにできるライブラリ（コンパイラ基盤。 https://qiita.com/uint256_t/items/0a00497c689fc56fd5b4 に詳しい）。WebAssembly ランタイムの [wasmtime](https://wasmtime.dev/) や Firefox の JavaScript エンジン SpiderMonkey の裏側で wasm バイナリをマシンコードにコンパイルしています
+[^cranelift]: LLVM と同様に、複数のアーキテクチャ向けのコード生成やコード最適化を引き受け、コンパイラ開発をフロントエンド部分の開発で済むようにできるライブラリ（コンパイラ基盤。 https://qiita.com/uint256_t/items/0a00497c689fc56fd5b4 に詳しい）。WebAssembly ランタイムの [wasmtime](https://wasmtime.dev/) や Firefox の JavaScript エンジン SpiderMonkey の裏側で wasm バイナリをマシンコードにコンパイルしています。**2024/11/29 追記**: [Clanelift の README の記述](https://github.com/bytecodealliance/wasmtime/tree/main/cranelift#planned-uses) によると、現在は SpiderMonkey 内では Cranelift を使用していないようです（将来の再検討の可能性はあるとしています）。
 [^hard]: そのため、実は本当の初心者にはちょっと難しい本なのではないかという気も少ししています。そこは読者を信頼しているということなのかもしれません
