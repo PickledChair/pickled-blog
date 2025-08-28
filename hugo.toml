@@ -1,11 +1,13 @@
 baseURL = "https://blog.pickledchair.com/"
 languageCode = "ja-jp"
 title = "Chaos in the SuitCase"
-paginate = "10"
 theme = "mainroad"
 hasCJKLanguage = true
 defaultContentLanguage = "ja"
 googleAnalytics = "G-FVF3WNH3P3"
+
+[pagination]
+  pagerSize = 10
 
 [Params]
   subtitle = "趣味についての色々。"
