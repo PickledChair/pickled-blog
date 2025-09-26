@@ -104,7 +104,7 @@ function buildMain(_options: Options, ...args: Arguments) {
 使ってみましょう。試しにソースファイルを `examples/answer.ajs` という名前で作って、そこからコンパイルしてみます：
 
 ```
-> deno -A ajisai.ts --help
+$ deno -A ajisai.ts --help
 
 Usage:   ajisai
 Version: 0.0.1
@@ -122,10 +122,10 @@ Commands:
 
   build  <source>  - Create executable from source files.
 
-> cat examples/answer.ajs
+$ cat examples/answer.ajs
 42
-> deno -A ajisai.ts build examples/answer.ajs
-> ./ajisai-out/main
+$ deno -A ajisai.ts build examples/answer.ajs
+$ ./ajisai-out/main
 42
 ```
 
@@ -134,19 +134,19 @@ Commands:
 ところで、現状は Ajisai のソースコードをそのままC言語のソースコードの中に埋め込んでいるだけです。ということは、Ajisai の整数演算の仕様がC言語と同じだと仮定すると、ソースコードとして算術演算を書いてみてもうまくいきそうです。やってみましょう：
 
 ```
-> cat examples/arith.ajs
+$ cat examples/arith.ajs
 (10 + 11) * 2
-> deno -A ajisai.ts build examples/arith.ajs
-> ./ajisai-out/main
+$ deno -A ajisai.ts build examples/arith.ajs
+$ ./ajisai-out/main
 42
 ```
 
 うまくいきました。しかも、構文エラーもCコンパイラが報告してくれます（当たり前ですが……）：
 
 ```
-> cat examples/invalid.ajs
+$ cat examples/invalid.ajs
 (10 + 11) *
-> deno -A ajisai.ts build examples/invalid.ajs
+$ deno -A ajisai.ts build examples/invalid.ajs
 ajisai-out/main.c:5:1: error: expected expression
     5 | );
       | ^

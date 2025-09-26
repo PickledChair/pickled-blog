@@ -270,7 +270,7 @@ int main() {
 前回よりも賢くなった面も見てみましょう。今回は、まだ識別子（変数名等に使うトークン）の字句解析には対応していないので、識別子を書くと構文エラーになります。`(123 + abc)` という内容のソースファイル `hoge.ajs` をコンパイルしてみて確かめてみましょう：
 
 ```
-> deno -A ajisai.ts build hoge.ajs
+$ deno -A ajisai.ts build hoge.ajs
 hoge.ajs:1:8-1:8:
 (123 + abc)
        ^
@@ -282,7 +282,7 @@ syntax error: invalid character
 また、今回はまだ二桁以上かつ先頭が0の整数はエラーを報告するようにしています（C言語的にはそのような整数は8進数なのですが、整数リテラルの字句解析の複雑さが増すので今回は10進数以外には対応しませんでした）。`hoge.ajs` の内容を `(123 + 0456)` にして確かめてみましょう：
 
 ```
-> deno -A ajisai.ts build hoge.ajs
+$ deno -A ajisai.ts build hoge.ajs
 hoge.ajs:1:8-1:9:
 (123 + 0456)
        ^
